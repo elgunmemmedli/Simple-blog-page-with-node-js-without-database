@@ -1,0 +1,20 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+    <!-- Navigation-->
+   <%- include('includes/navidation.ejs') %>
+    <!-- Page Header-->
+    <%- include('includes/header.ejs', {header : blog}) %>
+    <!-- Main Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                  <p><%= blog.text %></p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- Footer-->
+    <%- include('includes/footer.ejs') %>

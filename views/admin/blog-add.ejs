@@ -1,0 +1,45 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include('includes/sidebar.ejs') %>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <%- include('includes/nav.ejs') %>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                                <!-- Page Heading -->
+                                <h1 class="h3 mb-2 text-gray-800"> Blog - Add </h1>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                       <form action="/admin/blog-add" method="POST">
+                                         <input type="text" name="title" placeholder="Title" class="form-control" />
+                                         <input type="text" name="image" placeholder="ImageUrl" class="form-control my-3" />
+                                         <textarea name="text" class="form-control" id="" cols="30" rows="5"></textarea>
+                                         <div class="mt-3 d-flex justify-content-end">
+                                            <button class="btn btn-success"> Edit </button>
+                                         </div>
+                                       </form>
+                                    </div>
+                                </div>
+                          
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+            <%- include('includes/footer.ejs') %>

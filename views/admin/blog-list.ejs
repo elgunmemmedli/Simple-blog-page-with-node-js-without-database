@@ -1,0 +1,79 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include('includes/sidebar.ejs') %>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <%- include('includes/nav.ejs') %>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                                <!-- Page Heading -->
+                                <h1 class="h3 mb-2 text-gray-800"> Blog - Lists </h1>
+                                <div class="card shadow mb-4">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <% if(blogs.length > 0) { %>
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Title</th>
+                                                        <th>Image</th>
+                                                        <th>Text</th>
+                                                        <th>Options</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Title</th>
+                                                        <th>Image</th>
+                                                        <th>Text</th>
+                                                        <th>Options</th>
+                                                    </tr>
+                                                </tfoot>
+                                              <tbody>
+                                                <% for(let blog of blogs) { %>
+                                                    <tr>
+                                                        <td> <%= blog.title %> </td>
+                                                        <td class="blog_list_img"> <img width="100px" class="blog_list_img" src="<%=blog.image%>" alt=""> </td>
+                                                        <td> <%=blog.text.length > 100 ? blog.text.substring(0,100) + '...' : blog.text %> </td>
+                                                        <td>
+                                                            <button class="btn btn-danger btn-sm"> X </button>
+                                                            <button class="btn btn-warning btn-sm"> \ </button>
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                              </tbody>
+                                            </table>
+                                            <% } else { %>
+                                                <h2 class="text-center my-3">
+                                                    Blogs Not Found
+                                                </h2>
+                                               <div class="d-flex justify-content-center">
+                                                <a href="/admin/blog-add" class="btn btn-success"> Blogs Add</a>
+                                               </div>
+                                                <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                          
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+            <%- include('includes/footer.ejs') %>

@@ -1,0 +1,45 @@
+<%- include('includes/head.ejs') %>
+    </head>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('includes/navidation.ejs') %>
+            <!-- Page Header-->
+            <%- include('includes/header.ejs', {header}) %>
+                <!-- Main Content-->
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <!-- Post preview-->
+
+                            <% if(blogs.length> 0) { %>
+                                 <% for(let blog of blogs) { %>
+                                    <div class="post-preview">
+                                        <a href="/blogs/<%= blog.id %>">
+                                            <h2 class="post-title">
+                                                <%= blog.title %>
+                                            </h2>
+                                            <h3 class="post-subtitle"> <%= blog.text.length > 100 ? blog.text.substring(0,100) + '...' : blog.text %> </h3>
+                                        </a>
+                                        <p class="post-meta">
+                                            Posted by
+                                            <a href="#!">Start Bootstrap</a>
+                                            on September 24, 2023
+                                        </p>
+                                    </div>
+                                    <hr class="my-4" />
+                                    <% } %>
+                                <% } else { %>
+                                    <h2 class="text-center my-4">
+                                        Blogs Not Found
+                                    </h2>
+                                    <% } %>
+                                        <!-- Pager-->
+                                        <div class="d-flex justify-content-end mb-4"><a
+                                                class="btn btn-primary text-uppercase" href="#!">Older
+                                                Posts →</a></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer-->
+                <%- include('includes/footer.ejs') %>
